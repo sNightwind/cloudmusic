@@ -3,11 +3,11 @@
     <van-form @submit="onSubmit">
       <van-cell-group inset>
         <van-field
-          v-model="username"
-          name="用户名"
-          label="用户名"
-          placeholder="用户名"
-          :rules="[{ required: true, message: '请填写用户名' }]"
+          v-model="phone"
+          name="手机号"
+          label="手机号"
+          placeholder="请输入手机号"
+          :rules="[{ required: true, message: '请输入手机号' }]"
         />
         <van-field
           v-model="password"
@@ -20,7 +20,7 @@
       </van-cell-group>
       <div style="margin: 16px">
         <van-button round block type="primary" native-type="submit">
-          提交
+          登录
         </van-button>
       </div>
     </van-form>

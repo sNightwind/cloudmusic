@@ -4,7 +4,7 @@
       <van-cell-group inset>
         <van-field
           v-model="email"
-          name="用户名"
+          name="邮箱"
           label="邮箱"
           placeholder="请输入邮箱地址"
           :rules="[{ required: true, message: '请输入邮箱地址' }]"
