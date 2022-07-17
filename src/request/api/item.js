@@ -6,3 +6,9 @@ export function getMusicItemList(data){
         url:`/playlist/detail?id=${data}`
     })
 }
+export function getItemList(data){
+    return service({
+        method:"GET",
+        url:`/playlist/track/all?id=${data}&limit=20&offset=0`
+    })
+}

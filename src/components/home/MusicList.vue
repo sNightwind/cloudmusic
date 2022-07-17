@@ -80,6 +80,7 @@ export default{
             height: 4rem;
             .my-swpie{
                 height: 100%;
+                position: relative;
                 img{
                     width: 100%;
                     height: 2.2rem;
@@ -88,19 +89,21 @@ export default{
                 }
                 .playCount{
                     font-size: 15px;
+                    position: absolute;
                     display: flex;
-                    margin-top: -150px;
+                    margin-top: -113px;
                     margin-left: 45px;
                     color: #fff;
                     .icon{
                         width: 18px;
                         height: 20px;
-                        margin-right: 5px;   
+                        margin-right: 5px; 
+                        fill:#fff  
                     }
                 }
                 .name{
                     display: block;
-                    margin-top: 110px;
+                    margin-top: -10px;
                     font-size: 18px;
                     padding: 10px;
                     color: #000;
