@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import { getMusicLyric } from "@/request/api/item";
+import { loginByPhoneAndPassword, loginByPhoneAndCaptchaCode, getCaptchaCode } from "@/request/api/login.js"
 export default createStore({
   state: {
     isLogin: false, //是否登录
@@ -34,7 +35,6 @@ export default createStore({
     updataPlayList: function (state, value) {
       state.playList = value;
     },
-
     updataPlayListIndex: function (state, value) {
       state.playListIndex = value;
     },
@@ -58,6 +58,25 @@ export default createStore({
       console.log(res);
       context.commit("updataLyricList", res.data.lrc);
     },
+    updateLoginStatus: function (state, value) {
+      //修改登录状态
+      state.isLogin = value;
+    },
+    getCaptchaCode: async function (context, value) {//获取验证码
+      let res = await getCaptchaCode(value)
+      console.log(res);
+      return res;
+    },
+    getLoginByPhoneAndCaptchaCode: async function (context, value) {
+      let res = await loginByPhoneAndCaptchaCode(value)
+      console.log(res);
+      return res;
+    },
+    getLoginByPhoneAndPassword: async function (context, value) {//通过手机号+密码登录
+      let res = await loginByPhoneAndPassword(value);
+      console.log(res);
+      return res;
+    }
   },
   modules: {},
 });
