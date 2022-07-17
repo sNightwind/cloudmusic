@@ -38,6 +38,7 @@
       :src="musicList.al.picUrl"
       alt=""
       :class="{ img_ar_active: !isbtnShow, img_ar_pauesd: isbtnShow }"
+
       @click="isLyricShow = true"
     />
   </div>
@@ -57,6 +58,7 @@
     >
       {{ item.lrc }}
     </p>
+
   </div>
   <div class="detailFooter">
     <div class="footerTop">
@@ -104,13 +106,16 @@
 <script>
 import { Vue3Marquee } from "vue3-marquee";
 import "vue3-marquee/dist/style.css";
+
 import { mapMutations, mapState } from "vuex";
+
 export default {
   data() {
     return {
       isLyricShow: false,
     };
   },
+
   computed: {
     ...mapState(["lyricList", "currentTime", "playListIndex", "playList","duration"]),
     lyric: function () {
@@ -180,6 +185,7 @@ export default {
         }
       }
     },
+
   },
   components: {
     Vue3Marquee,
@@ -194,6 +200,7 @@ export default {
   z-index: -1;
   filter: blur(70px);
 }
+
 .detailTop {
   display: flex;
   width: 100%;
@@ -202,16 +209,20 @@ export default {
   justify-content: space-between;
   align-items: center;
   fill: #fff;
+
   .detailTopLeft {
     display: flex;
     align-items: center;
+
     .detailTopCenter {
       width: 3rem;
       height: 100%;
       margin-left: 0.4rem;
+
       span {
         color: #999;
       }
+
       .icon {
         width: 0.3rem;
         height: 0.3rem;
@@ -220,6 +231,7 @@ export default {
     }
   }
 }
+
 .detailContent {
   width: 100%;
   height: 9rem;
@@ -227,6 +239,7 @@ export default {
   flex-direction: column;
   align-items: center;
   position: relative;
+
   .img_needle {
     width: 2rem;
     height: 3rem;
@@ -235,6 +248,7 @@ export default {
     transform: rotate(-13deg);
     transition: all 2s;
   }
+
   .img_needle_active {
     width: 2rem;
     height: 3rem;
@@ -243,6 +257,7 @@ export default {
     transform: rotate(0deg);
     transition: all 2s;
   }
+
   .img_cd {
     width: 5rem;
     height: 5rem;
@@ -250,6 +265,7 @@ export default {
     bottom: 2.3rem;
     z-index: -1;
   }
+
   .img_ar {
     width: 3.2rem;
     height: 3.2rem;
@@ -258,21 +274,27 @@ export default {
     bottom: 3.14rem;
     animation: rotate_ar 10s linear infinite;
   }
+
   .img_ar_active {
     animation-play-state: running;
   }
+
   .img_ar_pauesd {
     animation-play-state: paused;
   }
+
   @keyframes rotate_ar {
     0% {
       transform: rotateZ(0deg);
     }
+
+
     100% {
       transform: rotateZ(360deg);
     }
   }
 }
+
 .musicLyric {
   width: 100%;
   height: 8rem;
@@ -294,6 +316,7 @@ export default {
   width: 100%;
   height: 0.06rem;
 }
+
 .detailFooter {
   width: 100%;
   height: 3rem;
@@ -302,17 +325,20 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   .footerTop {
     width: 100%;
     height: 1rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
+
     .icon {
       width: 0.36rem;
       height: 0.36rem;
       fill: rgb(245, 234, 234);
     }
+
     .icon {
       width: 0.6rem;
       height: 0.6rem;

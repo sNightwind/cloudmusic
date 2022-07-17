@@ -33,14 +33,17 @@ export default {
   .van-swipe {
     width: 100%;
     height: 3rem;
+
     .van-swipe-item {
       padding: 0 0.2rem;
+
       img {
         width: 100%;
         height: 100%;
         border-radius: 0.2rem;
       }
     }
+
     .van-swipe__indicator--active {
       background-color: rgb(219, 130, 130);
     }

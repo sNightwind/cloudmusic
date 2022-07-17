@@ -1,5 +1,6 @@
 <template>
   <div class="FooterMusic">
+
     <div class="footerLeft" @click="updateDetailShow">
       <img :src="playList[playListIndex].al.picUrl" />
       <div>
@@ -22,6 +23,7 @@
         <use xlink:href="#icon-gedan"></use>
       </svg>
     </div>
+
     <audio
       ref="audio"
       :src="` https://music.163.com/song/media/outer/url?id=${playList[playListIndex].id}.mp3 `"
@@ -38,29 +40,32 @@
       :addDuration="addDuration"
       />
     </van-popup>
+
   </div>
 </template>
 <script>
 import { mapMutations, mapState } from "vuex";
+
 import MusicDetail from "@/components/item/MusicDetail.vue";
+
+
 export default {
-  data(){
+data(){
     return{
       interVal:0
     }
   },
   computed: {
-    ...mapState(["playList", "playListIndex", "isbtnShow", "detailShow"]),
+    ...mapState(["playList", "playListIndex", "isbtnShow",'detailShow']),
+
   },
-  mounted() {
+    mounted() {
     
     this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
     
-  },
-  updated(){
+  },updated(){
     this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
-    this.addDuration()
-  },
+    this.addDuration()},
   methods: {
     play: function () {
       //暂停 那么播放
@@ -88,6 +93,24 @@ export default {
   components: {
     MusicDetail,
   },
+    watch:{
+    // 下标切换 自动播放
+    playListIndex:function(){
+        this.$refs.audio.autoplay=true;
+        if(this.$refs.audio.paused){
+            //同步改变图标
+            this.updateIsBtnShow(false)
+        }
+    },
+    playList:function(){
+        if(this.isbtnShow){
+            this.$refs.audio.autoplay=true;
+            this.updateIsBtnShow(false)
+        }
+    }
+
+  }
+
 };
 </script>
 

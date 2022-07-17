@@ -26,7 +26,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   .topContent {
     width: 65%;
     height: 100%;
@@ -39,6 +39,5 @@
       font-weight: 900;
     }
   }
-
 }
 </style>
