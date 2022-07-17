@@ -6,7 +6,7 @@
                  <use xlink:href="#icon-bofang"></use>
                 </svg>
                 <span>
-                    >播放全部<span>(共{{itemList.length}}首)</span>
+                    播放全部<span>(共{{itemList.length}}首)</span>
                 </span>
             </div>
             <div class="listRight">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="itemRight">
-                    <svg class="icon" aria-hidden="true">
+                    <svg class="icon" aria-hidden="true" v-if='item.mv !=0'>
                         <use xlink:href="#icon-shipin"></use>
                     </svg>
                     <svg class="icon" aria-hidden="true">
@@ -48,3 +48,91 @@ export default {
     props:['itemList','subscribedCount']
 }
 </script>
+<style lang="less" scoped>
+.itemMusicList{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 0 0.2rem;
+    margin-top: 0.2rem;
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+    .itemListTop{
+        width: 100%;
+        height: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .listLeft{
+            width: 3rem;
+            height: 100%;
+            display: flex;
+            .icon{
+                width: 30px;
+                height: 30px;
+                margin-top: 10px;
+            }
+            span{
+                font-size: 15px;
+                font-weight: 900;
+                padding-top: 15px;
+                padding-left: 5px;
+                span{
+                    color: #666;
+                    font-size: 10px;
+                    font-weight: 100;
+                }
+            }
+        }
+        .listRight{
+            width: 128px;
+            height: 50px;
+            background-color:red ;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+            border-radius:25px ;
+        }
+    }
+    .item{
+        height: 60px;
+        width: 100%;
+        .itemLeft{
+        width: 315px;
+        height: 52px;
+        .leftSpan{
+            float: left;
+            line-height: 52px;
+        }
+        div{
+            padding-left: 20px;
+            padding-top: 5px;
+            height: 52px;
+            float: left;
+            p{
+                font-weight: 900;
+                font-size: 18px;
+                overflow: hidden;
+            }
+            span{
+                font-size: 14px;
+                color: #666;
+                font-weight: 100;
+            }
+        }
+    }
+    .itemRight{
+        float: right;
+        line-height: 52px;
+        .icon{
+            width: 30px;
+            height: 30px;
+            fill: #666;
+            padding: 5px;
+        }
+    }
+    }
+    
+
+}
+</style>
