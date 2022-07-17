@@ -9,12 +9,15 @@
                 <span>歌单</span>
         </div>
         <div class="itemRight">
+
             <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-sousuo"></use>
             </svg>
+
             <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-31liebiao"></use>
             </svg>
+
         </div>      
     </div>
     <div class="middle">
