@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     isLogin:false,//是否登录
+    isFooterMusic:true,//判断底部播放组件是否需要显示
     playList: [
       {
         al: {

@@ -47,4 +47,15 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from) => {
+  console.log(to)
+  //全局组件 用于判断播放器是否需要显示
+  if (to.path == '/login') {
+    store.state.isFooterMusic = false
+  } else {
+    store.state.isFooterMusic = true
+  }
+  console.log(store.state.isFooterMusic)
+})
+
 export default router
