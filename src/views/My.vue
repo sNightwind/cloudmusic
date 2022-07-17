@@ -1,0 +1,15 @@
+<template>
+  <h1>我的</h1>
+</template>
+<script>
+// @ is an alias to /src
+
+import TopNav from "@/components/home/TopNav.vue";
+import SwpierTop from "@/components/home/SwpierTop.vue";
+import IconList from "@/components/home/IconList.vue";
+export default {
+  name: "My",
+  components: {
+  },
+};
+</script>
