@@ -1,6 +1,5 @@
 <template>
   <div class="FooterMusic">
-
     <div class="footerLeft" @click="updateDetailShow">
       <img :src="playList[playListIndex].al.picUrl" />
       <div>
