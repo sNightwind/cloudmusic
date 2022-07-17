@@ -9,7 +9,9 @@ import {
   CellGroup,
   NavBar,
   Popup,
-}} from "vant";
+  CountDown,
+  Toast,
+} from "vant";
 
 //用数组来管理引入的Vant组件
 let plugins = [
@@ -23,6 +25,8 @@ let plugins = [
   CellGroup,
   NavBar,
   Popup,
+  CountDown,
+  Toast,
 ];
 
 export default function getVant(app) {
