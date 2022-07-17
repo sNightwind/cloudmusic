@@ -2,6 +2,7 @@
   <div>
     <TopNav></TopNav>
     <SwpierTop></SwpierTop>
+    <MusicList/>
     <IconList></IconList>
   </div>
 </template>
@@ -10,8 +11,9 @@
 // @ is an alias to /src
 
 
-import TopNav from "@/components/home/TopNav.vue";
-import SwpierTop from "@/components/home/SwpierTop.vue";
+import TopNav from '@/components/home/TopNav.vue'
+import SwpierTop from '@/components/home/SwpierTop.vue'
+import MusicList from '@/components/home/MusicList.vue'
 import IconList from "@/components/home/IconList.vue";
 
 export default {
@@ -19,8 +21,10 @@ export default {
   components: {
     TopNav,
     SwpierTop,
+    MusicList,
     IconList,
   },
 };
+
 
 </script>
