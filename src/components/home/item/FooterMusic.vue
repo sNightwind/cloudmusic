@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="footerRight">
-            <svg class="icon" aria-hidden="true" @click="play" v-if="isBtnShow">
+            <svg class="icon" aria-hidden="true" @click="play" v-if="isbtnShow">
                 <use xlink:href="#icon-bofang"></use>
             </svg>
 
@@ -32,21 +32,21 @@
 import { mapMutations, mapState } from 'vuex';
 export default {
     computed: {
-        ...mapState(["playList", "playListIndex", 'isBtnShow'])
+        ...mapState(["playList", "playListIndex", 'isbtnShow'])
     },
     methods: {
         play: function () {
             //暂停 那么播放
             if (this.$refs.audio.paused) {
                 this.$refs.audio.play()
-                this.updateIsBtnShow(false)
+                this.updataIsbtnShow(false)
             }//播放 则暂停
             else {
                 this.$refs.audio.pause()
-                this.updateIsBtnShow(true)
+                this.updataIsbtnShow(true)
             }
         },
-        ...mapMutations(['updateIsBtnShow'])
+        ...mapMutations(['updataIsbtnShow'])
     },
 };
 

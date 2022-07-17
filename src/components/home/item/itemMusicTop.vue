@@ -15,8 +15,7 @@
             <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-31liebiao"></use>
             </svg>
-        </div>
-        
+        </div>      
     </div>
     <div class="middle">
             <img :src="playlist.coverImgUrl" alt="" class="touxiang">
@@ -42,7 +41,7 @@
             </svg>
     </div>    
 </div>
-    
+
 </template>
 <script>
 export default{
