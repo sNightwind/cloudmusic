@@ -15,8 +15,8 @@ export default createStore({
           pic_str: "109951165929038814",
         },
 
-        name:'测试名',
-        id: 1805395376,
+        name:'海阔天空',
+        id: 34110,
       },
     ],
     playListIndex: 0, //默认播放器
