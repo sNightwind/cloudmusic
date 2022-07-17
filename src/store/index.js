@@ -14,13 +14,17 @@ export default createStore({
           picUrl: "https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
           pic_str: "109951165929038814",
         },
-        id: 346089,
+
+        name:'测试名',
+        id: 1805395376,
       },
     ],
     playListIndex: 0, //默认播放器
-    isbtnShow: true, //暂停按钮的显示
-    detailShow: false, //歌曲详细页的显示
-    lyricList: {}, //歌词
+    isbtnShow:true,//暂停按钮的显示
+    detailShow:false,//歌曲详细页的显示
+    lyricList:{},//歌词
+    currentTime:0,//当前时间
+    duration:0,//歌曲总时长
   },
   getters: {},
   mutations: {
@@ -30,15 +34,23 @@ export default createStore({
     updataPlayList: function (state, value) {
       state.playList = value;
     },
+
     updataPlayListIndex: function (state, value) {
-      state.PlayListIndex = value;
+      state.playListIndex = value;
     },
     updataDetailShow: function (state) {
       state.detailShow = !state.detailShow;
+
     },
     updataLyricList: function (state, value) {
       state.lyricList = value;
     },
+    updataCurrentTime:function(state,value){
+      state.currentTime=value
+    },
+    updataDuration:function(state,value){
+      state.duration=value
+    }
   },
   actions: {
     getLyric: async function (context, value) {

@@ -9,8 +9,8 @@ import {
   CellGroup,
   NavBar,
   Popup,
+}} from "vant";
 
-} from "vant";
 //用数组来管理引入的Vant组件
 let plugins = [
   Button,
@@ -24,6 +24,7 @@ let plugins = [
   NavBar,
   Popup,
 ];
+
 export default function getVant(app) {
   plugins.forEach((element) => {
     return app.use(element);
