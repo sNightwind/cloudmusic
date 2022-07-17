@@ -6,6 +6,7 @@ export function getBanner(){
         method:"GET",
         url:"/banner?type=2",
     })
+
 }
 //获取推荐歌单
 export function getMusicList(){
@@ -13,4 +14,5 @@ export function getMusicList(){
         method:"GET",
         url:"/personalized?limit=10"
     })
+
 }

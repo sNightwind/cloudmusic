@@ -26,7 +26,6 @@ export default {
             let result=await getItemList(id);
             console.log(result);
             state.itemList=result.data.songs
-
             //防止刷新造成数据丢失
             sessionStorage.setItem('itemDetail',JSON.stringify(state))
         });
