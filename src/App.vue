@@ -1,6 +1,16 @@
 <template>
   <router-view />
+  <FooterMusic v-show="$store.state.isFooterMusic" />
 </template>
+
+<script>
+import FooterMusic from "@/components/home/item/FooterMusic.vue";
+export default {
+  components: {
+    FooterMusic,
+  },
+};
+</script>
 
 <style lang="less">
 * {
@@ -10,7 +20,7 @@
 }
 
 .icon {
-  width: .5rem;
-  height: .5rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 </style>
