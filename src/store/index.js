@@ -9,15 +9,15 @@ export default createStore({
       {
         al: {
           //底部测试数据
-          id: 34110,
-          name: "海阔天空",
-          pic: 109951165796899180,
-          picUrl: "https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
+          id: 120577126,
+          name: "测试歌曲",
+          pic: 109951165929038820,
+          picUrl: "https://p1.music.126.net/gtzaOYEY6WN24zai2JG5ww==/109951165929038814.jpg",
           pic_str: "109951165929038814",
         },
 
-        name:'海阔天空',
-        id: 34110,
+        name:'测试歌曲',
+        id: 1805395376,
       },
     ],
     playListIndex: 0, //默认播放器
