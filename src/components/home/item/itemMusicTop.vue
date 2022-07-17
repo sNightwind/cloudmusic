@@ -24,4 +24,19 @@ export default{
     props:['playlist']
 }
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.itemMusicTop{
+    width: 100%;
+    height: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .2rem;
+    .itemLeft,.itemRight{
+        width: 25%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+</style>
