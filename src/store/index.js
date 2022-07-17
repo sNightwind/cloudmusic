@@ -1,9 +1,9 @@
-import { createStore } from 'vuex'
-import { getMusicLyric } from '@/request/api/item'
+import { createStore } from "vuex";
+import { getMusicLyric } from "@/request/api/item";
 export default createStore({
   state: {
-    isLogin:false,//是否登录
-    isFooterMusic:true,//判断底部播放组件是否需要显示
+    isLogin: false, //是否登录
+    isFooterMusic: true, //判断底部播放组件是否需要显示
     playList: [
       {
         al: {
@@ -18,37 +18,34 @@ export default createStore({
       },
     ],
     playListIndex: 0, //默认播放器
-    isbtnShow:true,//暂停按钮的显示
-    detailShow:false,//歌曲详细页的显示
-    lyricList:{},//歌词
-
+    isbtnShow: true, //暂停按钮的显示
+    detailShow: false, //歌曲详细页的显示
+    lyricList: {}, //歌词
   },
   getters: {},
   mutations: {
-    updataIsbtnShow:function(state,value){
-      state.isbtnShow =value
+    updataIsbtnShow: function (state, value) {
+      state.isbtnShow = value;
     },
-    updataPlayList:function(state,value){
-      state.playList = value
+    updataPlayList: function (state, value) {
+      state.playList = value;
     },
-    updataPlayListIndex:function(state,value){
-      state.PlayListIndex =value
+    updataPlayListIndex: function (state, value) {
+      state.PlayListIndex = value;
     },
-    updataDetailShow:function(state){
-      state.detailShow = state.detailShow
+    updataDetailShow: function (state) {
+      state.detailShow = state.detailShow;
     },
-    updataLyricList:function(state,value){
-      state.lyricList = value
+    updataLyricList: function (state, value) {
+      state.lyricList = value;
     },
   },
   actions: {
-    getLyric:async function(context,value){
-      let res =await getMusicLyric(value)
-      console.log(res)
-      context.commit("updataLyricList",res.data.lrc)
-    }
+    getLyric: async function (context, value) {
+      let res = await getMusicLyric(value);
+      console.log(res);
+      context.commit("updataLyricList", res.data.lrc);
+    },
   },
-  modules: {
-  }
-})
-
+  modules: {},
+});

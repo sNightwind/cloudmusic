@@ -34,12 +34,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+
   .iconItem {
     width: 25%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .icon {
       width: 1rem;
       height: 1rem;

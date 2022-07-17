@@ -9,7 +9,6 @@ import SwpierTop from "@/components/home/SwpierTop.vue";
 import IconList from "@/components/home/IconList.vue";
 export default {
   name: "My",
-  components: {
-  },
+  components: {},
 };
 </script>
