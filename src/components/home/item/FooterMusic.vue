@@ -1,6 +1,6 @@
 <template>
   <div class="FooterMusic">
-    <div class="footerLeft">
+    <div class="footerLeft" @click="updataDetailShow">
       <img :src="playList[playListIndex].al.picUrl" />
       <div>
         <p>
@@ -22,7 +22,7 @@
         <use xlink:href="#icon-gedan"></use>
       </svg>
     </div>
-    <audio
+    <audio  
       ref="audio"
       :src="` https://music.163.com/song/media/outer/url?id=${playList[playListIndex].id}.mp3 `"
     ></audio>
@@ -32,7 +32,7 @@
 import { mapMutations, mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["playList", "playListIndex", "isbtnShow"]),
+    ...mapState(["playList", "playListIndex", "isbtnShow",'detailShow']),
   },
   methods: {
     play: function () {
@@ -46,8 +46,25 @@ export default {
         this.updataIsbtnShow(true);
       }
     },
-    ...mapMutations(["updataIsbtnShow"]),
+    ...mapMutations(['updataIsbtnShow','updataDetailShow']),
   },
+  watch:{
+    // 下标切换 自动播放
+    playListIndex:function(){
+        this.$refs.audio.autoplay=true;
+        if(this.$refs.audio.paused){
+            //同步改变图标
+            this.updateIsBtnShow(false)
+        }
+    },
+    playList:function(){
+        if(this.isbtnShow){
+            this.$refs.audio.autoplay=true;
+            this.updateIsBtnShow(false)
+        }
+    }
+
+  }
 };
 </script>
 

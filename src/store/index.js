@@ -8,13 +8,13 @@ export default createStore({
       {
         al: {
           //底部测试数据
-          id: 120577126,
-          name: "测试歌曲",
-          pic: 109951165929038820,
-          picUrl: "",
+          id: 34110,
+          name: "海阔天空",
+          pic: 109951165796899180,
+          picUrl: "https://p1.music.126.net/6y-UleORITEDbvrOLV0Q8A==/5639395138885805.jpg",
           pic_str: "109951165929038814",
         },
-        id: 1805395376,
+        id: 346089,
       },
     ],
     playListIndex: 0, //默认播放器
@@ -34,7 +34,7 @@ export default createStore({
       state.PlayListIndex = value;
     },
     updataDetailShow: function (state) {
-      state.detailShow = state.detailShow;
+      state.detailShow = !state.detailShow;
     },
     updataLyricList: function (state, value) {
       state.lyricList = value;

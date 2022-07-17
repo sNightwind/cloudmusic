@@ -18,7 +18,7 @@
     </div>
     <div class="itemList">
       <div class="item" v-for="(item, i) in itemList" :key="i">
-        <div class="itemLeft" @click="playMusic">
+        <div class="itemLeft" @click="playMusic(i)">
           <span class="leftSpan">{{ i + 1 }}</span>
           <div>
             <p>{{ item.name }}</p>
@@ -49,8 +49,9 @@ export default {
   methods: {
     playMusic: function () {
       this.updatePlayList(this.itemList);
+      this.updatePlayListIndex(i);
     },
-    ...mapMutations(["updatePlayList"]),
+    ...mapMutations(['updatePlayList','updatePlayListIndex']),
   },
 };
 </script>
