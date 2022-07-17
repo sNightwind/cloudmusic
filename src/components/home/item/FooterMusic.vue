@@ -33,14 +33,13 @@
       position="right"
       :style="{ height: '100%', width: '100%' }"
     >
-      <MusicDetail 
-      :musicList="playList[playListIndex]" 
-      :play="play"
-      :isbtnShow="isbtnShow"
-      :addDuration="addDuration"
+      <MusicDetail
+        :musicList="playList[playListIndex]"
+        :play="play"
+        :isbtnShow="isbtnShow"
+        :addDuration="addDuration"
       />
     </van-popup>
-
   </div>
 </template>
 <script>
@@ -48,69 +47,70 @@ import { mapMutations, mapState } from "vuex";
 
 import MusicDetail from "@/components/item/MusicDetail.vue";
 
-
 export default {
-data(){
-    return{
-      interVal:0
-    }
+  data() {
+    return {
+      interVal: 0,
+    };
   },
   computed: {
-    ...mapState(["playList", "playListIndex", "isbtnShow",'detailShow']),
-
+    ...mapState(["playList", "playListIndex", "isbtnShow", "detailShow"]),
   },
-    mounted() {
-    
-    this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
-    
-  },updated(){
-    this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
-    this.addDuration()},
+  mounted() {
+    this.$store.dispatch("getLyric", this.playList[this.playListIndex].id);
+  },
+  updated() {
+    this.$store.dispatch("getLyric", this.playList[this.playListIndex].id);
+    this.addDuration();
+  },
   methods: {
+    ...mapMutations([
+      "updataIsbtnShow",
+      "updataDetailShow",
+      "updataCurrentTime",
+      "updataDuration",
+    ]),
     play: function () {
       //暂停 那么播放
       if (this.$refs.audio.paused) {
         this.$refs.audio.play();
         this.updataIsbtnShow(false);
-        this.updateTime()//播放调用函数进行传值
+        this.updateTime(); //播放调用函数进行传值
       } //播放 则暂停
       else {
         this.$refs.audio.pause();
         this.updataIsbtnShow(true);
-        clearInterval(this.interVal)//暂停清除定时器
+        clearInterval(this.interVal); //暂停清除定时器
       }
     },
-    addDuration:function(){
-      this.updataDuration(this.$refs.audio.duration)
+    addDuration: function () {
+      this.updataDuration(this.$refs.audio.duration);
     },
-    updateTime:function(){
-      this.interVal=setInterval(()=>{
-        this.updataCurrentTime(this.$refs.audio.currentTime)
-      },1000)
+    updateTime: function () {
+      this.interVal = setInterval(() => {
+        this.updataCurrentTime(this.$refs.audio.currentTime);
+      }, 1000);
     },
-    ...mapMutations(["updataIsbtnShow", "updataDetailShow","updataCurrentTime","updataDuration"]),
   },
   components: {
     MusicDetail,
   },
-    watch:{
+  watch: {
     // 下标切换 自动播放
-    playListIndex:function(){
-        this.$refs.audio.autoplay=true;
-        if(this.$refs.audio.paused){
-            //同步改变图标
-            this.updateIsBtnShow(false)
-        }
+    playListIndex: function () {
+      this.$refs.audio.autoplay = true;
+      if (this.$refs.audio.paused) {
+        //同步改变图标
+        this.updateIsBtnShow(false);
+      }
     },
-    playList:function(){
-        if(this.isbtnShow){
-            this.$refs.audio.autoplay=true;
-            this.updateIsBtnShow(false)
-        }
-    }
-
-  }
-
+    playList: function () {
+      if (this.isbtnShow) {
+        this.$refs.audio.autoplay = true;
+        this.updateIsBtnShow(false);
+      }
+    },
+  },
 };
 </script>
 
