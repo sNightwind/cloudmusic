@@ -22,8 +22,11 @@ export default createStore({
     isbtnShow:true,//暂停按钮的显示
     detailShow:false,//歌曲详细页的显示
     lyricList:{},//歌词
+<<<<<<< HEAD
     currentTime:0,//当前时间
     duration:0,//歌曲总时长
+=======
+>>>>>>> a7927d64dddee71cdbcb97e65b77735477905433
 
   },
   getters: {},
