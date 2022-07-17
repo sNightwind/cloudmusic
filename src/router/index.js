@@ -31,8 +31,17 @@ const routes = [
   },
 
   {
-    path: "/my",
-    name: "my",
+    path: '/itemMusic',
+    name: 'ItemMusic',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "itemMusic" */ '../views/ItemMusic.vue')
+  },
+  
+{
+    path: '/my',
+    name: 'my',
     //路由守卫
     beforeEnter: (to, from, next) => {
       if (store.state.isLogin) {
