@@ -1,6 +1,6 @@
 <template>
   <div class="FooterMusic">
-    <div class="footerLeft" @click="updateDetailShow">
+    <div class="footerLeft" @click="updataDetailShow">
       <img :src="playList[playListIndex].al.picUrl" />
       <div>
         <p>
@@ -62,6 +62,13 @@ export default {
     this.$store.dispatch("getLyric", this.playList[this.playListIndex].id);
     this.addDuration();
   },
+    mounted() {
+    
+    this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
+    
+  },updated(){
+    this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
+    this.addDuration()},
   methods: {
     ...mapMutations([
       "updataIsbtnShow",

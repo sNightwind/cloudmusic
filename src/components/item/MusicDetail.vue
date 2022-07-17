@@ -2,7 +2,7 @@
   <img :src="musicList.al.picUrl" alt="" class="bgimg" />
   <div class="detailTop">
     <div class="detailTopLeft">
-      <svg class="icon" aria-hidden="true" @click="updateDetailShow">
+      <svg class="icon" aria-hidden="true" @click="updataDetailShow">
         <use xlink:href="#icon-zuojiantou"></use>
       </svg>
       <div class="detailTopCenter">
@@ -38,7 +38,6 @@
       :src="musicList.al.picUrl"
       alt=""
       :class="{ img_ar_active: !isbtnShow, img_ar_pauesd: isbtnShow }"
-
       @click="isLyricShow = true"
     />
   </div>
@@ -58,7 +57,6 @@
     >
       {{ item.lrc }}
     </p>
-
   </div>
   <div class="detailFooter">
     <div class="footerTop">
@@ -79,9 +77,16 @@
       </svg>
     </div>
     <div class="footerContent">
-      <input type="range" class="range" min="0" max="duration" v-model="currentTime" step="0.05">
+      <input
+        type="range"
+        class="range"
+        min="0"
+        max="duration"
+        v-model="currentTime"
+        step="0.05"
+      />
     </div>
-    <div class="footer">
+    <div class="footerBottom">
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-xunhuan"></use>
       </svg>
@@ -117,7 +122,13 @@ export default {
   },
 
   computed: {
-    ...mapState(["lyricList", "currentTime", "playListIndex", "playList","duration"]),
+    ...mapState([
+      "lyricList",
+      "currentTime",
+      "playListIndex",
+      "playList",
+      "duration",
+    ]),
     lyric: function () {
       let arr;
       if (this.lyricList.lyric) {
@@ -129,7 +140,7 @@ export default {
           let time =
             parseInt(min) * 60 * 1000 + parseInt(sec) * 1000 + parseInt(mill);
           if (isNaN(Number(mill))) {
-            mill = iten.slice(7, 9);
+            mill = item.slice(7, 9);
             lrc = item.slice(10, item.length);
             time =
               parseInt(min) * 60 * 1000 + parseInt(sec) * 1000 + parseInt(mill);
@@ -149,13 +160,13 @@ export default {
     },
   },
   mounted() {
-    this.addDuration()
+    this.addDuration();
   },
-  props: ["musicList", "isbtnShow", "play","addDuration"],
+  props: ["musicList", "isbtnShow", "play", "addDuration"],
   methods: {
     backHome: function () {
       this.isLyricShow = false;
-      this.updateDetailShow();
+      this.updataDetailShow();
     },
     goPlay: function (num) {
       let index = this.playListIndex + num;
@@ -166,7 +177,7 @@ export default {
       }
       this.updataPlayListIndex(index);
     },
-    ...mapMutations(["updateDetailShow", "updataPlayListIndex"]),
+    ...mapMutations(["updataDetailShow", "updataPlayListIndex"]),
   },
   watch: {
     currentTime: function (newValue) {
@@ -176,16 +187,15 @@ export default {
           this.$refs.musicLyric.scrollTop = p.offsetTop;
         }
       }
-      if(newValue==this.duration){
-        if(this.playListIndex==this.playList.length+1){
-          this.updataPlayListIndex(0)
-          this.play()
-        }else{
-          this.updataPlayListIndex(this.playListIndex+1)
+      if (newValue == this.duration) {
+        if (this.playListIndex == this.playList.length + 1) {
+          this.updataPlayListIndex(0);
+          this.play();
+        } else {
+          this.updataPlayListIndex(this.playListIndex + 1);
         }
       }
     },
-
   },
   components: {
     Vue3Marquee,
@@ -288,7 +298,6 @@ export default {
       transform: rotateZ(0deg);
     }
 
-
     100% {
       transform: rotateZ(360deg);
     }
@@ -312,7 +321,7 @@ export default {
     font-size: 0.5rem;
   }
 }
-.range{
+.range {
   width: 100%;
   height: 0.06rem;
 }
@@ -338,7 +347,12 @@ export default {
       height: 0.36rem;
       fill: rgb(245, 234, 234);
     }
-
+  }
+  .footerBottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     .icon {
       width: 0.6rem;
       height: 0.6rem;
