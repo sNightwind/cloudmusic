@@ -1,42 +1,37 @@
 <template>
-  <div id="app">
-      <header>
-           <!-- 命名视图-->
-          <router-view name="header"></router-view>
-      </header>
-      <main>
-        <router-view ></router-view> <!-- 不给视图命名，默认名称是default-->
-      </main>
-      <footer>
-          <router-view name="footer"></router-view>
-      </footer>
-  </div>
+  <router-view />
+  <FooterMusic v-show="$store.state.isFooterMusic" />
+  
 </template>
 <script>
-    export default{
-      name:'app',
-
-    }
+import FooterMusic from "@/components/home/item/FooterMusic.vue";
+export default {
+  name: "app",
+  components: {
+    FooterMusic,
+  },
+};
 </script>
 
-<style >
-.iconfont{
-  font-family:"iconfont" !important;
-  font-size:16px;font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;}
-
-html, body {
-  height: 100%;
+<style lang="less">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-  #app {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  main{
-      flex: 1;
-      overflow-x: hidden;
-  }
+
+.icon {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+  overflow-x: hidden;
+}
+
 </style>

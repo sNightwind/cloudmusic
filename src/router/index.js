@@ -1,83 +1,134 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/home/index.vue'
-import tabbar from '../components/tab-bar/index.vue'
-import Navbar from '../components/nav-bar/index.vue'
-import Command from '../views/command/index.vue'
-import Program from '../views/program/index.vue'
-import Artists from '../views/artists/index.vue'
-
-
-
-Vue.use(VueRouter)
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import store from "@/store/index";
+import tabbar from "../components/tab-bar/index.vue";
+import Navbar from "../components/nav-bar/index.vue";
+import Command from "../views/command/index.vue";
+import Program from "../views/program/index.vue";
+import Artists from "../views/artists/index.vue";
 
 const routes = [
   {
-    path:'',
-    redirect:'/home',
+    path: "/",
+    name: "home",
+    component: HomeView,
   },
   {
-    path:'/home',
-    name:'home',
-    components:{
-      default:Home,
-      footer:tabbar,
-    },
-    meta:{
-      icon:'wap-home',
-      title:'发现',
-      inTabbar:true,
-    }
+    path: "/about",
+    name: "about",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
-    path:'/command',
-    name:'command',
-    components:{
-      header:Navbar,
-      default:Command,
-      footer:tabbar,
-    },
-    meta:{
-      icon:'music',
-      title:'推荐电台',
-      inTabbar:true,
-    }
+    path: "/itemMusic",
+    name: "ItemMusic",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "itemMusic" */ "../views/ItemMusic.vue"),
+  },
+  ,
+  {
+    path: "/search",
+    name: "Search",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "search" */ "../views/Search.vue"),
   },
   {
-    path:'/program',
-    name:'program',
-    components:{
-      header:Navbar,
-      default:Program,
-      footer:tabbar,
+    path: "/my",
+    name: "my",
+    //路由守卫
+    beforeEnter: (to, from, next) => {
+      if (
+        store.state.isLogin ||
+        store.state.token ||
+        localStorage.getItem("token")
+      ) {
+        //判断是否登录
+        next();
+      } else {
+        next("/login");
+      }
     },
-    meta:{
-      icon:'&#xe123',
-      title:'电台详情',
-      inTabbar:false,
-    }
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "my" */ "../views/My.vue"),
   },
   {
-    path:'/artists',
-    name:'artists',
-    components:{
-      header:Navbar,
-      default:Artists,
-      footer:tabbar,
-    },
-    meta:{
-      icon:'award',
-      title:'歌手榜',
-      inTabbar:true,
-    }
+    path: "/login",
+    name: "login",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Login.vue"),
   },
-  
-]
+  {
+    path: "/command",
+    name: "command",
+    components: {
+      header: Navbar,
+      default: Command,
+      footer: tabbar,
+    },
+    meta: {
+      icon: "music",
+      title: "推荐电台",
+      inTabbar: true,
+    },
+  },
+  {
+    path: "/program",
+    name: "program",
+    components: {
+      header: Navbar,
+      default: Program,
+      footer: tabbar,
+    },
+    meta: {
+      icon: "&#xe123",
+      title: "电台详情",
+      inTabbar: false,
+    },
+  },
+  {
+    path: "/artists",
+    name: "artists",
+    components: {
+      header: Navbar,
+      default: Artists,
+      footer: tabbar,
+    },
+    meta: {
+      icon: "award",
+      title: "歌手榜",
+      inTabbar: true,
+    },
+  },
+];
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes,
+});
 
-export default router
+router.beforeEach((to, from) => {
+  // console.log(to)
+  //全局组件 用于判断播放器是否需要显示
+  if (to.path == "/login") {
+    store.state.isFooterMusic = false;
+  } else {
+    store.state.isFooterMusic = true;
+  }
+  // console.log(store.state.isFooterMusic)
+});
+
+export default router;
