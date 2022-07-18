@@ -11,6 +11,11 @@ import {
   Popup,
   CountDown,
   Toast,
+  Col,
+  Row,
+  Badge,
+  Skeleton,
+  List
 } from "vant";
 
 //用数组来管理引入的Vant组件
@@ -27,6 +32,11 @@ let plugins = [
   Popup,
   CountDown,
   Toast,
+  Col,
+  Row,
+  Badge,
+  Skeleton,
+  List
 ];
 
 export default function getVant(app) {

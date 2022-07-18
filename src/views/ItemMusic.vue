@@ -23,11 +23,11 @@ export default {
       console.log(id);
       //获取歌单详情
       let res = await getMusicItemList(id);
-      console.log(res);
+      // console.log(res);
       state.playlist = res.data.playlist;
       //获取歌单歌曲
       let result = await getItemList(id);
-      console.log(result);
+      // console.log(result);
       state.itemList = result.data.songs;
       //防止刷新造成数据丢失
       sessionStorage.setItem("itemDetail", JSON.stringify(state));

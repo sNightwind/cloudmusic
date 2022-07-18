@@ -41,7 +41,6 @@ export default createStore({
     updataPlayList: function (state, value) {
       state.playList = value;
     },
-
     updataPlayListIndex: function (state, value) {
       state.playListIndex = value;
     },
@@ -57,13 +56,6 @@ export default createStore({
     updataDuration: function (state, value) {
       state.duration = value;
     },
-  },
-  actions: {
-    getLyric: async function (context, value) {
-      let res = await getMusicLyric(value);
-      console.log(res);
-      context.commit("updataLyricList", res.data.lrc);
-    },
     updateLoginStatus: function (state, value) {
       //修改登录状态
       state.isLogin = value;
@@ -75,6 +67,13 @@ export default createStore({
     updateUser: function (state, value) {
       state.user = value;
       localStorage.setItem('user', JSON.stringify(state.user));
+    },
+  },
+  actions: {
+    getLyric: async function (context, value) {
+      let res = await getMusicLyric(value);
+      // console.log(res);
+      context.commit("updataLyricList", res.data.lrc);
     },
     getCaptchaCode: async function (context, value) {//获取验证码
       let res = await getCaptchaCode(value)

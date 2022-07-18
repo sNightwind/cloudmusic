@@ -18,7 +18,7 @@
         >
           <template #button>
             <van-count-down
-              :time="1000 * 2"
+              :time="1000 * 60"
               format="ss s"
               v-if="isDataShow"
               @finish="isDataShow = false"
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     getCaptchaCode: async function () {
-      console.log(this.phone);
+      // console.log(this.phone);
       try {
         let res = await this.$store.dispatch("getCaptchaCode", {
           phone: this.phone,
@@ -83,7 +83,7 @@ export default {
       }
     },
     loginByPhoneAndCaptchaCode: async function () {
-      console.log(this.phone + " " + this.sms);
+      // console.log(this.phone + " " + this.sms);
       try {
         let res = await this.$store.dispatch("getLoginByPhoneAndCaptchaCode", {
           phone: this.phone,
@@ -96,7 +96,7 @@ export default {
           //获取用户详情
 
           let userResponse = await getUserDetail(res.data.account.id);
-          console.log(userResponse);
+          // console.log(userResponse);
 
           this.$router.push("/my");
         } else {

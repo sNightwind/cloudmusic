@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     login: async function () {
-      console.log(this.phone + " " + this.password);
+      // console.log(this.phone + " " + this.password);
       let res = await this.$store.dispatch("getLoginByPhoneAndPassword", {
         phone: this.phone,
         password: this.password,
@@ -58,7 +58,7 @@ export default {
           uid: res.data.account.id,
         });
         this.$store.commit("updateUser", userResponse.data);
-        console.log(userResponse);
+        // console.log(userResponse);
 
         this.$router.push("/my");
       } else {
