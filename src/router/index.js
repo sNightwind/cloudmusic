@@ -1,18 +1,16 @@
-
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import store from '@/store/index'
 
-
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: '/',
+    name: 'home',
+    component: HomeView
   },
   {
-    path: "/about",
-    name: "about",
+    path: '/about',
+    name: 'about',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -29,33 +27,40 @@ const routes = [
       import(/* webpackChunkName: "itemMusic" */ "../views/ItemMusic.vue"),
   },
   {
-    path: "/itemMusic",
-    name: "ItemMusic",
+
+    path: '/itemMusic',
+    name: 'ItemMusic',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "itemMusic" */ "../views/ItemMusic.vue")
+    component: () => import(/* webpackChunkName: "itemMusic" */ '../views/ItemMusic.vue')
   },
+  ,
   {
-    path: "/my",
-    name: "my",
+
+    path: '/search',
+    name: 'Search',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "search" */ '../views/Search.vue')
+  },
+{
+    path: '/my',
+    name: 'my',
     //路由守卫
     beforeEnter: (to, from, next) => {
-      if (store.state.isLogin) {
-        //判断是否登录
-        next();
+      if (store.state.isLogin) {//判断是否登录
+        next()
       } else {
-        next("/login");
+        next('/login')
       }
     },
-
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "my" */ '../views/My.vue')
   },
-
   {
     path: '/login',
     name: 'login',

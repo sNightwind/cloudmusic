@@ -57,32 +57,63 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.musicList {
-  width: 100%;
-  height: 5rem;
-  padding: 0.2rem;
-
-  .musicTop {
-    width: 100%;
-    height: 0.6rem;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.2rem;
-
-    .title {
-      font-size: 0.4rem;
-      font-weight: 900;
-    }
-
-    .more {
-      border: 1px solid #ccc;
-      text-align: center;
-      line-height: 0.6rem;
-      padding: 0 0.2rem;
-      border-radius: 0.4rem;
-    }
-  }
-
+    .musicList{
+        width: 100%;
+        height: 5rem;
+        padding: 0.2rem;
+        .musicTop{
+            width: 100%;
+            height: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.2rem;
+            .title{
+                font-size: 0.4rem;
+                font-weight: 900;
+            }
+            .more{
+                border: 1px solid #ccc;
+                text-align: center;
+                line-height: 0.6rem;
+                padding: 0 0.2rem;
+                border-radius: 0.4rem;
+            }
+        }
+        .musicContent{
+            width: 100%;
+            height: 4rem;
+            .my-swpie{
+                height: 100%;
+                position: relative;
+                img{
+                    width: 100%;
+                    height: 2.2rem;
+                    padding: 10px;
+                    border-radius: 0.4rem;                 
+                }
+                .playCount{
+                    font-size: 15px;
+                    position: absolute;
+                    display: flex;
+                    margin-top: -113px;
+                    margin-left: 45px;
+                    color: #fff;
+                    .icon{
+                        width: 18px;
+                        height: 20px;
+                        margin-right: 5px; 
+                        fill:#fff  
+                    }
+                }
+                .name{
+                    display: block;
+                    margin-top: -10px;
+                    font-size: 18px;
+                    padding: 10px;
+                    color: #000;
+                }
+            }
+        }
   .musicContent {
     width: 100%;
     height: 4rem;
