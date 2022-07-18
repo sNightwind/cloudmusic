@@ -7,3 +7,10 @@ export default {
   components: {},
 };
 </script>
+<style lang="less" scoped>
+.rightsReserved {
+  width: 100%;
+  flex: -1;
+  text-align: center;
+}
+</style>

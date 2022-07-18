@@ -33,7 +33,6 @@
   </div>
 </template>
 <script>
-import { getUserDetail } from "@/request/api/my.js";
 export default {
   name: "loginWithPassword",
   data() {
