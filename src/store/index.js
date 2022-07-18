@@ -1,7 +1,7 @@
 import { createStore } from "vuex";
 import { loginByPhoneAndPassword, loginByPhoneAndCaptchaCode, getCaptchaCode } from "@/request/api/login.js"
 import { getUserDetail } from "@/request/api/my";
-
+import { getMusicLyric } from "@/request/api/item";
 export default createStore({
   state: {
     //袁隆俊

@@ -39,23 +39,15 @@ export default {
   methods: {
     async getGedan() {
       let res = await getMusicList();
-      console.log(res);
+      // console.log(res);
       this.musicList = res.data.result;
     },
-    methods:{
-        async getGedan(){
-            let res=await getMusicList();
-            // console.log(res);
-            this.musicList=res.data.result
-        },
-        changeCount:function(num){
-            if(num>=100000000){
-                return (num/100000000).toFixed(1) +"亿"
-            }else if(num>=10000){
-                return (num/10000).toFixed(1) +"万"
-                
-            }
-        }
+    changeCount: function (num) {
+      if (num >= 100000000) {
+        return (num / 100000000).toFixed(1) + "亿";
+      } else if (num >= 10000) {
+        return (num / 10000).toFixed(1) + "万";
+      }
     },
   },
   mounted() {
