@@ -30,7 +30,7 @@ export default{
         this.keyWorldList=JSON.parse(localStorage.getItem('keyWorldList')) ?JSON.parse(localStorage.getItem('keyWorldList')) : [] 
     },
     methods:{
-        enterKey:function(){
+        enterKey:async function(){
             if(this.searchKey != ""){
             this.keyWorldList.unshift(this.searchKey);
             //去重
@@ -40,10 +40,10 @@ export default{
                 this.keyWorldList.splice(this.keyWorldList.length-1,1)
             }
             localStorage.setItem("keyWorldList",JSON.stringify(this.keyWorldList));
-            let res = getSearchMusic(this.searchKey);
+            let res =await getSearchMusic(this.searchKey);
             console.log(res);
-            // this.searchList=data.result.songs
-            // this.searchKey="";
+            this.searchList=res.data.result.songs
+            this.searchKey="";
             }
             
         },
@@ -51,11 +51,11 @@ export default{
             localStorage.removeItem("keyWorldList")
             this.keyWorldList=[]
         },
-        // searchHistory:async function(item){
-        //     let res = await getSearchMusic(item);
-        //     console.log(res);
-        //     this.searchList=data.result.songs
-        // },
+        searchHistory:async function(item){
+            let res = await getSearchMusic(item);
+            console.log(res);
+            this.searchList=res.data.result.songs
+        },
     },
 }
 </script>
