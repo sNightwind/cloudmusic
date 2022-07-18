@@ -62,13 +62,6 @@ export default {
     this.$store.dispatch("getLyric", this.playList[this.playListIndex].id);
     this.addDuration();
   },
-    mounted() {
-    
-    this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
-    
-  },updated(){
-    this.$store.dispatch("getLyric",this.playList[this.playListIndex].id)
-    this.addDuration()},
   methods: {
     ...mapMutations([
       "updataIsbtnShow",
@@ -107,13 +100,13 @@ export default {
       this.$refs.audio.autoplay = true;
       if (this.$refs.audio.paused) {
         //同步改变图标
-        this.updateIsBtnShow(false);
+        this.updataIsbtnShow(false);
       }
     },
     playList: function () {
       if (this.isbtnShow) {
         this.$refs.audio.autoplay = true;
-        this.updateIsBtnShow(false);
+        this.updataIsbtnShow(false);
       }
     },
   },

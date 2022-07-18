@@ -47,10 +47,10 @@ export default {
   },
   props: ["itemList", "subscribedCount"],
   methods: {
-    ...mapMutations(["updatePlayList", "updatePlayListIndex"]),
+    ...mapMutations(["updataPlayList", "updataPlayListIndex"]),
     playMusic: function (i) {
-      this.updatePlayList(this.itemList);
-      this.updatePlayListIndex(i);
+      this.updataPlayList(this.itemList);
+      this.updataPlayListIndex(i);
     },
   },
 };

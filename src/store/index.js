@@ -17,7 +17,7 @@ export default createStore({
         },
 
         name:'测试歌曲',
-        id: 1805395376,
+        id: 346089,
       },
     ],
     playListIndex: 0, //默认播放器
