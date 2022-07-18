@@ -45,9 +45,11 @@ export default createStore({
     updataPlayList: function (state, value) {
       state.playList = value;
     },
-
     updataPlayListIndex: function (state, value) {
       state.playListIndex = value;
+    },
+    pushPlayList:function(state,value){
+      state.playList.push(value)
     },
     updataDetailShow: function (state) {
       state.detailShow = !state.detailShow;

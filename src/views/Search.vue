@@ -23,6 +23,27 @@
     <svg class="icon" aria-hidden="true" @click="delHistory">
       <use xlink:href="#icon-shanchu"></use>
     </svg>
+    <div class="itemList">
+      <div class="item" v-for="(item, i) in searchList" :key="i">
+        <div class="itemLeft" @click="updateIndex(item)">
+          <span class="leftSpan">{{ i + 1 }}</span>
+          <div>
+            <p>{{ item.name }}</p>
+            <span v-for="(item1, index) in item.artists" :key="index">{{
+              item1.name
+            }}</span>
+          </div>
+        </div>
+        <div class="itemRight">
+          <svg class="icon" aria-hidden="true" v-if="item.mvid != 0">
+            <use xlink:href="#icon-shipin"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-31liebiao"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -54,19 +75,25 @@ export default {
         localStorage.setItem("keyWorldList", JSON.stringify(this.keyWorldList));
         let res = getSearchMusic(this.searchKey);
         console.log(res);
-        // this.searchList=data.result.songs
-        // this.searchKey="";
+        this.searchList=res.data.result.songs
+        this.searchKey="";
       }
     },
     delHistory: function () {
       localStorage.removeItem("keyWorldList");
       this.keyWorldList = [];
     },
-    // searchHistory:async function(item){
-    //     let res = await getSearchMusic(item);
-    //     console.log(res);
-    //     this.searchList=data.result.songs
-    // },
+    searchHistory:async function(item){
+        let res = await getSearchMusic(item);
+        console.log(res);
+        this.searchList=data.result.songs
+    },
+    updateIndex:function(item){
+        item.al=item.album
+        item.al.picUrl=item.album.artist.img1v1Url
+        this.$store.commit("pushPlayList",item)
+        this.$store.commit("updatePlayListIndex",this.$store.state.playList.length-1)
+    }
   },
 };
 </script>
@@ -104,6 +131,49 @@ export default {
     height: 0.3rem;
     position: absolute;
     right: 0.2rem;
+  }
+}
+
+.itemList {
+  width: 100%;
+  padding: 0.2rem;
+  .item {
+    height: 40px;
+    width: 100%;
+    .itemLeft {
+      width: 315px;
+      height: 52px;
+      .leftSpan {
+        float: left;
+        line-height: 52px;
+      }
+      div {
+        padding-left: 20px;
+        padding-top: 5px;
+        height: 52px;
+        float: left;
+        p {
+          font-weight: 900;
+          font-size: 18px;
+          overflow: hidden;
+        }
+        span {
+          font-size: 14px;
+          color: #666;
+          font-weight: 100;
+        }
+      }
+    }
+    .itemRight {
+      float: right;
+      line-height: 52px;
+      .icon {
+        width: 30px;
+        height: 30px;
+        fill: #666;
+        padding: 5px;
+      }
+    }
   }
 }
 </style>
