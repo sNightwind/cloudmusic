@@ -17,8 +17,7 @@
       >
         <van-image
           :key="category.targetId"
-          width="100%"
-          height="10rem"
+          width="100%"   
           fit="cover"
           :src="category.pic"
         />
@@ -30,8 +29,6 @@
       <van-col span="10" v-for="item in recommend" class="djr">
         <van-image
           :key="item.id"
-          width="10rem"
-          height="10rem"
           fit="cover"
           :src="item.picUrl"
           :alt="item.name"

@@ -63,7 +63,7 @@ export default createStore({
     },
     updataDuration: function (state, value) {
       state.duration = value;
-    },    updateLoginStatus: function (state, value) {
+    },updateLoginStatus: function (state, value) {
       //修改登录状态
       state.isLogin = value;
     },
@@ -82,7 +82,6 @@ export default createStore({
       console.log(res);
       context.commit("updataLyricList", res.data.lrc);
     },
-
     getCaptchaCode: async function (context, value) {
       //获取验证码
       let res = await getCaptchaCode(value);

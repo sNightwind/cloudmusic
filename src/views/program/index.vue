@@ -6,9 +6,7 @@
       v-for="(items, index) in program"
       :key="index"
     >
-      <van-image
-        width="10rem"
-        height="10rem"
+      <van-image       
         fit="contain"
         :src="items.userProfile.avatarUrl"
       />

@@ -4,7 +4,7 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-rili"></use>
       </svg>
-      <span>每日推荐</span>
+      <span @click="jumpToCommend">电台推荐</span>
     </div>
     <div class="iconItem">
       <svg class="icon" aria-hidden="true">
@@ -22,10 +22,24 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-paixingbang"></use>
       </svg>
-      <span>排行榜</span>
+      <span @click="jumpToArtisit">歌手榜</span>
     </div>
   </div>
 </template>
+
+<script>
+import Vue from "vue";
+export default {
+  methods: {
+    jumpToCommend() {
+      this.$router.push("/command");
+    },
+    jumpToArtisit() {
+      this.$router.push("/artists");
+    },
+  },
+};
+</script>
 <style lang="less" scoped>
 .iconList {
   width: 100%;
