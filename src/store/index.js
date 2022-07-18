@@ -6,6 +6,10 @@ import {
 } from "@/request/api/login.js";
 import { getUserDetail } from "@/request/api/my";
 import { getMusicLyric } from "@/request/api/item";
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
 export default createStore({
   state: {
     //袁隆俊
