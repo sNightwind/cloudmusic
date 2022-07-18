@@ -87,16 +87,15 @@ export default {
       let res = await getSearchMusic(item);
       console.log(res);
       this.searchList = res.data.result.songs;
-    },
-  },
-  updateIndex: function (item) {
+    },updateIndex: function (item) {
     item.al = item.album;
     item.al.picUrl = item.album.artist.img1v1Url;
     this.$store.commit("pushPlayList", item);
     this.$store.commit(
-      "updatePlayListIndex",
+      "updataPlayListIndex",
       this.$store.state.playList.length - 1
     );
+  },
   },
 };
 </script>
