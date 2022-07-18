@@ -58,7 +58,7 @@ export default {
 <style lang="less" scoped>
 .itemMusicList {
   width: 100%;
-  height: 100%;
+  height: 10rem;
   background-color: #fff;
   padding: 0 0.2rem;
   margin-top: 0.2rem;
@@ -74,68 +74,91 @@ export default {
       width: 3rem;
       height: 100%;
       display: flex;
+      justify-content: space-between;
+      align-items: center;
       .icon {
-        width: 30px;
-        height: 30px;
-        margin-top: 10px;
+        stroke: #333333;
+        stroke-width: 20;
       }
       span {
-        font-size: 15px;
-        font-weight: 900;
-        padding-top: 15px;
-        padding-left: 5px;
+        font-weight: 700;
         span {
-          color: #666;
-          font-size: 10px;
-          font-weight: 100;
+          font-weight: 400;
+          font-size: 0.24rem;
+          color: #999;
         }
       }
     }
     .listRight {
-      width: 128px;
-      height: 50px;
+      display: flex;
+      align-items: center;
       background-color: red;
-      text-align: center;
-      line-height: 50px;
+      padding: 0.2rem;
+      border-radius: 0.4rem;
       color: #fff;
-      border-radius: 25px;
+      .icon {
+        width: 0.3rem;
+        height: 0.3rem;
+        fill: #fff;
+        margin-right: 0.1rem;
+        stroke: #fff;
+        stroke-width: 50;
+      }
     }
   }
-  .item {
-    height: 60px;
+  .itemList {
     width: 100%;
-    .itemLeft {
-      width: 315px;
-      height: 52px;
-      .leftSpan {
-        float: left;
-        line-height: 52px;
-      }
-      div {
-        padding-left: 20px;
-        padding-top: 5px;
-        height: 52px;
-        float: left;
-        p {
-          font-weight: 900;
-          font-size: 18px;
-          overflow: hidden;
+    .item {
+      width: 100%;
+      height: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .itemLeft {
+        width: 85%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .leftSpan {
+          display: inline-block;
+          width: 0.2rem;
+          text-align: center;
         }
-        span {
-          font-size: 14px;
-          color: #666;
-          font-weight: 100;
+        div {
+          p {
+            width: 4.54rem;
+            height: 0.4rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 700;
+          }
+          span {
+            font-weight: 400;
+            font-size: 0.24rem;
+            color: #999;
+          }
+          margin-left: 0.3rem;
         }
       }
-    }
-    .itemRight {
-      float: right;
-      line-height: 52px;
-      .icon {
-        width: 30px;
-        height: 30px;
-        fill: #666;
-        padding: 5px;
+      .itemRight {
+        width: 20%;
+        height: 100%;
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        position: relative;
+        .icon {
+          fill: #999;
+        }
+        .bofang {
+          position: absolute;
+          left: 0;
+        }
+        .liebiao {
+          position: absolute;
+          right: 0;
+        }
       }
     }
   }

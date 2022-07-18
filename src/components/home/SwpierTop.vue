@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 import { getBanner } from "@/request/api/home.js";
 import { reactive, onMounted } from "vue";
 export default {

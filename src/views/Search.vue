@@ -87,15 +87,16 @@ export default {
       let res = await getSearchMusic(item);
       console.log(res);
       this.searchList = res.data.result.songs;
-    },updateIndex: function (item) {
-    item.al = item.album;
-    item.al.picUrl = item.album.artist.img1v1Url;
-    this.$store.commit("pushPlayList", item);
-    this.$store.commit(
-      "updataPlayListIndex",
-      this.$store.state.playList.length - 1
-    );
-  },
+    },
+    updateIndex: function (item) {
+      item.al = item.album;
+      item.al.picUrl = item.album.artist.img1v1Url;
+      this.$store.commit("pushPlayList", item);
+      this.$store.commit(
+        "updataPlayListIndex",
+        this.$store.state.playList.length - 1
+      );
+    },
   },
 };
 </script>
@@ -138,42 +139,56 @@ export default {
 
 .itemList {
   width: 100%;
-  padding: 0.2rem;
   .item {
-    height: 40px;
     width: 100%;
+    height: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     .itemLeft {
-      width: 315px;
-      height: 52px;
+      width: 85%;
+      height: 100%;
+      display: flex;
+      align-items: center;
       .leftSpan {
-        float: left;
-        line-height: 52px;
+        display: inline-block;
+        width: 0.2rem;
+        text-align: center;
       }
       div {
-        padding-left: 20px;
-        padding-top: 5px;
-        height: 52px;
-        float: left;
         p {
-          font-weight: 900;
-          font-size: 18px;
+          width: 4.54rem;
+          height: 0.4rem;
           overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-weight: 700;
         }
         span {
-          font-size: 14px;
-          color: #666;
-          font-weight: 100;
+          font-weight: 400;
+          font-size: 0.24rem;
+          color: #999;
         }
+        margin-left: 0.3rem;
       }
     }
     .itemRight {
-      float: right;
-      line-height: 52px;
+      width: 20%;
+      height: 100%;
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      position: relative;
       .icon {
-        width: 30px;
-        height: 30px;
-        fill: #666;
-        padding: 5px;
+        fill: #999;
+      }
+      .bofang {
+        position: absolute;
+        left: 0;
+      }
+      .liebiao {
+        position: absolute;
+        right: 0;
       }
     }
   }

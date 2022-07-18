@@ -6,9 +6,6 @@ import {
 } from "@/request/api/login.js";
 import { getUserDetail } from "@/request/api/my";
 import { getMusicLyric } from "@/request/api/item";
-import Vue from 'vue'
-import Vuex from 'vuex'
-Vue.use(Vuex)
 
 export default createStore({
   state: {
@@ -52,8 +49,8 @@ export default createStore({
     updataPlayListIndex: function (state, value) {
       state.playListIndex = value;
     },
-    pushPlayList:function(state,value){
-      state.playList.push(value)
+    pushPlayList: function (state, value) {
+      state.playList.push(value);
     },
     updataDetailShow: function (state) {
       state.detailShow = !state.detailShow;
