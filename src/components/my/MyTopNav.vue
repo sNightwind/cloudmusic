@@ -2,7 +2,8 @@
   <div class="topNav">
     <div class="topLeft">
       <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-31liebiao"></use>
+        <use xlink:href="#icon-31liebiao" v-if="$store.state.isLogin"></use>
+        <use xlink:href="#icon-tuichu" v-else></use>
       </svg>
     </div>
     <div class="topContent">

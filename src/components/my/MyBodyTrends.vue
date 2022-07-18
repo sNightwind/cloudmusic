@@ -52,11 +52,6 @@ export default {
         this.user = tempUser;
         let events = await getUserTrends(this.user.profile.userId);
         this.events = events.data;
-        // let tempEvents = [];
-        // for(let i =0;i<events.data.events.length;i++){
-        //   //遍历动态 获取每条动态信息
-        //   tempEvents.push(events.data.events[])
-        // }
         console.log(events.data);
       }
       //   console.log(tempUser);
