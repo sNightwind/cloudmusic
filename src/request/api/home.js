@@ -8,16 +8,16 @@ export function getBanner() {
   });
 }
 //获取推荐歌单
-export function getMusicList(){
-    return service({
-        method:"GET",
-        url:"/personalized?limit=10"
-    })
+export function getMusicList() {
+  return service({
+    method: "GET",
+    url: "/personalized?limit=10",
+  });
 }
 //搜索
-export function getSearchMusic(data){
-    return service({
-        method:"GET",
-        url:`/search?keywords=${data}`
-    })
+export function getSearchMusic(data) {
+  return service({
+    method: "GET",
+    url: `/search?keywords=${data}`,
+  });
 }

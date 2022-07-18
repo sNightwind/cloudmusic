@@ -73,65 +73,66 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .2rem;
+    padding: 0.2rem;
     position: relative;
-    .itemLeft,.itemRight{
-        width: 25%;
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 .2rem;
-        span{
-            font-size-adjust: .4rem;
-            color: #fff;
-        }
-        .icon{
-            fill:#fff
-        }
+    .itemLeft,
+    .itemRight {
+      width: 25%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0.2rem;
+      span {
+        font-size-adjust: 0.4rem;
+        color: #fff;
+      }
+      .icon {
+        fill: #fff;
+      }
     }
-    .bgimg{
-        width: 100%;
-        height: 11rem;
-        position: fixed;
-        z-index: -1;
-        filter: blur(30px);
+    .bgimg {
+      width: 100%;
+      height: 11rem;
+      position: fixed;
+      z-index: -1;
+      filter: blur(30px);
     }
-}
-.middle{
+  }
+  .middle {
     // float: left;
     padding-top: 20px;
     width: 400px;
     height: 160px;
     margin: 0 auto;
-    .touxiang{
-        width: 150px;
-        height: 150px;
-        border-radius: 10px;
-        float: left;
+    .touxiang {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      float: left;
     }
-    .name{
-        color: #fff;
-        display: block;
-        font-weight: 900;
+    .name {
+      color: #fff;
+      display: block;
+      font-weight: 900;
     }
-    .description{
-        // width: 250px;
-        height: 90px;
-        color: #fff;
-        overflow: hidden;
+    .description {
+      // width: 250px;
+      height: 90px;
+      color: #fff;
+      overflow: hidden;
     }
-}
-.footer{
+  }
+  .footer {
     width: 390px;
     height: 85px;
     margin: 20px auto;
     display: flex;
     justify-content: space-between;
-    .icon{
-        width: 35px;
-        height: 35px;
-        fill: #fff;
+    .icon {
+      width: 35px;
+      height: 35px;
+      fill: #fff;
     }
 
     .icon {

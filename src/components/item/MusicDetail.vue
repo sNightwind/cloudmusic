@@ -111,7 +111,6 @@
 <script>
 import { Vue3Marquee } from "vue3-marquee";
 import "vue3-marquee/dist/style.css";
-
 import { mapMutations, mapState } from "vuex";
 
 export default {
