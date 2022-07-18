@@ -6,12 +6,24 @@ import Navbar from "../components/nav-bar/index.vue";
 import Command from "../views/command/index.vue";
 import Program from "../views/program/index.vue";
 import Artists from "../views/artists/index.vue";
+import Follows from '@/components/my/Follows.vue'
+import Followed from '@/components/my/Followed.vue'
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/follows",
+    name: "follows",
+    component: Follows,
+  },
+  {
+    path: "/followed",
+    name: "followed",
+    component: Followed,
   },
   {
     path: "/about",
@@ -123,12 +135,12 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   // console.log(to)
   //全局组件 用于判断播放器是否需要显示
-  if (to.path == "/login") {
-    store.state.isFooterMusic = false;
+  if (to.path == '/login' || to.path == '/my' || to.path == '/follows' || to.path == '/followed') {
+    store.state.isFooterMusic = false
   } else {
     store.state.isFooterMusic = true;
   }
-  // console.log(store.state.isFooterMusic)
-});
+  console.log(store.state.isFooterMusic)
+})
 
 export default router;
