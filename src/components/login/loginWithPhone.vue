@@ -40,7 +40,7 @@
           block
           type="primary"
           native-type="submit"
-          @click="login"
+          @click="loginByPhoneAndCaptchaCode"
         >
           登录
         </van-button>
@@ -49,6 +49,7 @@
   </div>
 </template>
 <script>
+import { getUserDetail } from "@/request/api/my.js";
 export default {
   name: "loginWithPhone",
   data() {
@@ -84,19 +85,20 @@ export default {
     loginByPhoneAndCaptchaCode: async function () {
       console.log(this.phone + " " + this.sms);
       try {
-        let res = await this.$store.dispatch("loginByPhoneAndCaptchaCode", {
+        let res = await this.$store.dispatch("getLoginByPhoneAndCaptchaCode", {
           phone: this.phone,
           code: this.sms,
         });
         if (res.data.code == 200) {
-          //发送成功
-          this.isDataShow = true;
-        } else if (res.data.code == 400) {
-          // this.$toast({
-          //   message: "顶部展示",
-          //   position: "top",
-          // });
-          alert(res.data.message);
+          //登录成功
+          this.$store.commit("updateLoginStatus", true);
+          this.$store.commit("updateToken", res.data.token);
+          //获取用户详情
+
+          let userResponse = await getUserDetail(res.data.account.id);
+          console.log(userResponse);
+
+          this.$router.push("/my");
         } else {
           alert(res.data.message);
         }
