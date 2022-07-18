@@ -63,7 +63,7 @@ export default {
       : [];
   },
   methods: {
-    enterKey: function () {
+    enterKey: async function () {
       if (this.searchKey != "") {
         this.keyWorldList.unshift(this.searchKey);
         //去重
@@ -73,27 +73,30 @@ export default {
           this.keyWorldList.splice(this.keyWorldList.length - 1, 1);
         }
         localStorage.setItem("keyWorldList", JSON.stringify(this.keyWorldList));
-        let res = getSearchMusic(this.searchKey);
+        let res = await getSearchMusic(this.searchKey);
         console.log(res);
-        this.searchList=res.data.result.songs
-        this.searchKey="";
+        this.searchList = res.data.result.songs;
+        this.searchKey = "";
       }
     },
     delHistory: function () {
       localStorage.removeItem("keyWorldList");
       this.keyWorldList = [];
     },
-    searchHistory:async function(item){
-        let res = await getSearchMusic(item);
-        console.log(res);
-        this.searchList=data.result.songs
+    searchHistory: async function (item) {
+      let res = await getSearchMusic(item);
+      console.log(res);
+      this.searchList = res.data.result.songs;
     },
-    updateIndex:function(item){
-        item.al=item.album
-        item.al.picUrl=item.album.artist.img1v1Url
-        this.$store.commit("pushPlayList",item)
-        this.$store.commit("updatePlayListIndex",this.$store.state.playList.length-1)
-    }
+  },
+  updateIndex: function (item) {
+    item.al = item.album;
+    item.al.picUrl = item.album.artist.img1v1Url;
+    this.$store.commit("pushPlayList", item);
+    this.$store.commit(
+      "updatePlayListIndex",
+      this.$store.state.playList.length - 1
+    );
   },
 };
 </script>
