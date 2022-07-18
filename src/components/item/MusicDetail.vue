@@ -6,7 +6,7 @@
         <use xlink:href="#icon-zuojiantou"></use>
       </svg>
       <div class="detailTopCenter">
-        <Vue3Marquee style="color: #fff"> {{ musicList.al.name }}</Vue3Marquee>
+        <Vue3Marquee style="color: #fff"> {{ musicList.name }}</Vue3Marquee>
         <span v-for="item in musicList.ar" :key="item">
           {{ item.name }}
         </span>
