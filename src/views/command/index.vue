@@ -42,7 +42,7 @@
                     @click = "jumpToDetail(item.id)"              
                 >
                     <p style="centre">{{item.rcmdText}} </p>  
-                    <p>{{item.id}}</p>
+                    
                 </van-image>
             </van-col>
         
@@ -78,8 +78,15 @@
             }
         },
         methods:{
-            jumpToDetail(id){
-                this.$router.push('/program');
+            jumpToDetail(rid){
+                console.log("传递前获取到的rid"+rid)
+                this.$router.push({
+                    path:'/program/?rid='+rid,
+                    params:{
+                        rid
+                    }
+                });
+                // '/program?rid='+rid
             }
         },
         async created(){

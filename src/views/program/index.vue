@@ -1,12 +1,15 @@
 <template>
-    <div class="program" v-if="detail">         
+    <div>
+        <div class="program" v-if="detail" v-for="(items,index) in program"
+        :key="index"
+        >
         <van-image
-            width="100%"
+            width="10rem"
             height="10rem"
-            fit="cover"
-            :src="detail.data.data.commentDatas.userProfile.avatarUrl"
+            fit="contain"
+            :src="items.userProfile.avatarUrl"
         />
-        <
+        </div>
     </div>
 </template>
 
@@ -18,19 +21,15 @@ export default{
     name:'Detail',
     data(){
         return{
-            detail:null,
-            tip:[],
+            detail:{},
+            program:[],
         }
     },
     async created(){
-        // let res5 = await getProgram()
+        console.log("rid:"+this.$route.params.rid)
         let detail =  await getDjDetail(this.$route.params.rid);
-        // console.log(detail)
-        let res = await getDjDetail();
-        this.tip = res.data.data
-        // console.log(this.tip)
-        // const {detail} = res.data.data
-        // console.log(detail)
+        this.program = detail.data.data.commentDatas;
+
         if(detail ==null || detail == undefined){
             Dialog.alert({
                title: '加载失败',
@@ -45,7 +44,7 @@ export default{
        }
        this.detail = detail ;
     //    console.log(this.detail);
-    console.log(detail.data.data.commentDatas);
+    // console.log(detail.data.data);
     // console.log(detail.data.data.commentDatas.userProfile);
     },
 }

@@ -5,6 +5,7 @@ import tabbar from '../components/tab-bar/index.vue'
 import Navbar from '../components/nav-bar/index.vue'
 import Command from '../views/command/index.vue'
 import Program from '../views/program/index.vue'
+import Artists from '../views/artists/index.vue'
 
 
 
@@ -54,6 +55,20 @@ const routes = [
       icon:'&#xe123',
       title:'电台详情',
       inTabbar:false,
+    }
+  },
+  {
+    path:'/artists',
+    name:'artists',
+    components:{
+      header:Navbar,
+      default:Artists,
+      footer:tabbar,
+    },
+    meta:{
+      icon:'award',
+      title:'歌手榜',
+      inTabbar:true,
     }
   },
   

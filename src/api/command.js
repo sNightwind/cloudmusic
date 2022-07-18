@@ -23,10 +23,20 @@ export const getRecommend = (limit = 6)=>request({
     url:API.RECOMMEND_API+'?limit=' + limit,
 })
 
-export const getDjDetail = (rid = 794532838)=>request({
+// export function getDjDetail(rid = 794532838){
+//     let res = request({
+//         url:API.DJDETAIL_API+'?rid='+rid
+//     })
+//         // console.log(res)
+//         return res
+// }
+export const getDjDetail = (rid = 793183566)=>request({
     url:API.DJDETAIL_API,
     params:{
         rid,
-    }   
+    }
 })
-// +'?rid=' + rid
+
+export const getArtist = ()=>request({
+    url:API.ARTISTS_API
+})
