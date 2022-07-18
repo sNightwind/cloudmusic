@@ -33,6 +33,7 @@
   </div>
 </template>
 <script>
+import { getUserDetail } from "@/request/api/my.js";
 export default {
   name: "loginWithPassword",
   data() {
@@ -51,11 +52,18 @@ export default {
       if (res.data.code == 200) {
         //登录成功
         this.$store.commit("updateLoginStatus", true);
+        this.$store.commit("updateToken", res.data.token);
+
+        let userResponse = await this.$store.dispatch("getUserDetail", {
+          uid: res.data.account.id,
+        });
+        this.$store.commit("updateUser", userResponse.data);
+        console.log(userResponse);
+
         this.$router.push("/my");
       } else {
-        Toast.fail(res.data.message);
+        alert(res.data.message);
       }
-      // console.log(res);
     },
   },
 };

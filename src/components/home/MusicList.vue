@@ -34,7 +34,7 @@ export default{
     methods:{
         async getGedan(){
             let res=await getMusicList();
-            console.log(res);
+            // console.log(res);
             this.musicList=res.data.result
         },
         changeCount:function(num){
