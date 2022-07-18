@@ -1,9 +1,6 @@
 <template>
-    <div>
-        基本信息
-    </div>
+  <div>基本信息</div>
 </template>
 <script>
-export default {
-};
+export default {};
 </script>

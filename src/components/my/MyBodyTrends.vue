@@ -1,9 +1,6 @@
 <template>
-    <div>
-        我是动态的内容
-    </div>
+  <div>我是动态的内容</div>
 </template>
 <script>
-export default {
-};
+export default {};
 </script>

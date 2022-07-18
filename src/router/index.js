@@ -1,8 +1,6 @@
-
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import store from '@/store/index'
-
+import { createRouter, createWebHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import store from "@/store/index";
 
 const routes = [
   {
@@ -26,7 +24,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "itemMusic" */ "../views/ItemMusic.vue")
+      import(/* webpackChunkName: "itemMusic" */ "../views/ItemMusic.vue"),
   },
   ,
   {
@@ -43,7 +41,11 @@ const routes = [
     name: "my",
     //路由守卫
     beforeEnter: (to, from, next) => {
-      if (store.state.isLogin || store.state.token || localStorage.getItem('token')) {
+      if (
+        store.state.isLogin ||
+        store.state.token ||
+        localStorage.getItem("token")
+      ) {
         //判断是否登录
         next();
       } else {
@@ -53,17 +55,18 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "my" */ '../views/My.vue')
+    component: () => import(/* webpackChunkName: "my" */ "../views/My.vue"),
   },
   {
-    path: '/login',
-    name: 'login',
+    path: "/login",
+    name: "login",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+    component: () =>
+      import(/* webpackChunkName: "login" */ "../views/Login.vue"),
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -73,12 +76,12 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   // console.log(to)
   //全局组件 用于判断播放器是否需要显示
-  if (to.path == '/login') {
-    store.state.isFooterMusic = false
+  if (to.path == "/login") {
+    store.state.isFooterMusic = false;
   } else {
-    store.state.isFooterMusic = true
+    store.state.isFooterMusic = true;
   }
   // console.log(store.state.isFooterMusic)
-})
+});
 
-export default router
+export default router;
