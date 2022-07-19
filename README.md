@@ -1,19 +1,16 @@
-# music
-
-## Project setup
+# Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 请搭配 网易云官方API服务器使用
+在该路径下 通过 powershell 或者 cmd 通过命令 
 ```
-npm run build
+node app.js 
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+运行服务器
