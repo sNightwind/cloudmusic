@@ -9,10 +9,13 @@
   </div>
   <van-list>
     <van-cell
+      class="nickName"
       v-for="item in list"
       :key="item"
       :title="item.nickname"
-    ></van-cell>
+    >
+      <img class="touxiang" :src="item.avatarUrl" />
+    </van-cell>
   </van-list>
 </template>
 <script>
@@ -43,3 +46,16 @@ export default {
   methods: {},
 };
 </script>
+<style lang="less" scoped>
+.van-cell {
+   width: 100%;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+}
+.touxiang {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+</style>

@@ -105,7 +105,7 @@ export default createStore({
       let res = await getUserDetail(value.uid);
       // console.log(res);
       return res;
-    },
+    }
   },
   modules: {},
 });

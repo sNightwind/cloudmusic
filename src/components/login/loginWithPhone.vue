@@ -54,7 +54,7 @@ export default {
   name: "loginWithPhone",
   data() {
     return {
-      phone: "19122130199",
+      phone: "",
       sms: "",
       isDataShow: false,
     };
